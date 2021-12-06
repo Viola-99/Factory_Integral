@@ -45,10 +45,13 @@ public class BuildingsGrid : MonoBehaviour
 
                 int x = Mathf.RoundToInt(worldPosition.x);
                 int y = Mathf.RoundToInt(worldPosition.z);
+               
                 bool available = true;
 
                 if (x < 0 || x > GridSize.x - flyingBuilding.Size.x) available = false;
                 if (y < 0 || y > GridSize.y - flyingBuilding.Size.y) available = false;
+
+                if (available && IsPlaceTaken(x, y)) available = false;
 
                 flyingBuilding.transform.position = new Vector3(x, 0, y);
                 flyingBuilding.SetTransparent(available);
@@ -60,8 +63,8 @@ public class BuildingsGrid : MonoBehaviour
 					{
                         GameManager.instance.ChangeMoney(-cost);
 
-                        flyingBuilding.SetNormal();
-                        flyingBuilding = null;
+                        PlaceFlyingBuilding(x, y);
+                      
                     }
 					else
 					 Debug.Log("Not enough money!");
@@ -69,5 +72,32 @@ public class BuildingsGrid : MonoBehaviour
                 }
             }
         }
+    }
+
+    private bool IsPlaceTaken(int placeX, int placeY)
+    {
+        for (int x = 0; x < flyingBuilding.Size.x; x++)
+        {
+            for (int y = 0; y < flyingBuilding.Size.y; y++)
+            {
+                if (grid[placeX + x, placeY + y] != null) return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void PlaceFlyingBuilding(int placeX, int placeY)
+    {
+        for (int x = 0; x < flyingBuilding.Size.x; x++)
+        {
+            for (int y = 0; y < flyingBuilding.Size.y; y++)
+            {
+                grid[placeX + x, placeY + y] = flyingBuilding;
+            }
+        }
+
+        flyingBuilding.SetNormal();
+        flyingBuilding = null;
     }
 }
