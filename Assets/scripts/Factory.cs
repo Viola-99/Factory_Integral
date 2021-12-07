@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Factory : Building
 {
-    private float maxWorkersCount = 20;
-    private float currentWorkersCount = 0;
+    private int maxWorkersCount = 20;
+    private int currentWorkersCount = 0;
 
-    void OnMouseButtonDown()
+    void OnMouseDown()
 	{
-        Debug.Log("Click");
+        if(isBuilded)
+        {
+            GameManager.instance.FillBuildingPanelWithInfo(currentWorkersCount, maxWorkersCount, 2);
+            GameManager.instance.InverseBuildingUIPanel();
+        }
 	}
 }

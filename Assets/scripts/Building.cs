@@ -10,6 +10,8 @@ public class Building : MonoBehaviour
 
     public float buildingCost = 5;
 
+    protected bool isBuilded = false;
+
     public void SetTransparent(bool available) 
     {
         
@@ -26,9 +28,10 @@ public class Building : MonoBehaviour
     public void SetNormal()
     {
         MainRenderer.material.color = Color.white;
+        isBuilded = true;
     }
 
-    private void OnDrawGizmos()
+    protected void OnDrawGizmos()
     {
         for (int x = 0; x < Size.x; x++)
         {
