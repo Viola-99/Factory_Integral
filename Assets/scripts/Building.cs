@@ -10,6 +10,8 @@ public class Building : MonoBehaviour
 
     public float buildingCost = 5;
 
+
+
     public void SetTransparent(bool available) 
     {
         
@@ -22,6 +24,15 @@ public class Building : MonoBehaviour
         
 
     }
+
+    
+
+  /*  void OnMouseDown()
+    {
+        buildingUIPanel.SetActive(true);
+    }*/
+
+
 
     public void SetNormal()
     {
