@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 	[SerializeField] private Text workersCountText;
 	[SerializeField] private Text productionSpeedText;
 
+	public Dictionary<Item, int> items;
+
     void Start()
 	{
 		UpdateMoneyTextUI(money);
