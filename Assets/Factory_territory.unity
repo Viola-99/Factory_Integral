@@ -1771,6 +1771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a24725aee2a044b912141474ffe9ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingUIPanel: {fileID: 2075159024}
   marketUI: {fileID: 71769743}
 --- !u!1 &587323582
 GameObject:
@@ -2960,9 +2961,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyText: {fileID: 255993731}
   money: 10
-  buildingUIPanel: {fileID: 2075159020}
-  workersCountText: {fileID: 587323584}
-  productionSpeedText: {fileID: 65782260}
 --- !u!4 &1571422606
 Transform:
   m_ObjectHideFlags: 0
@@ -3659,6 +3657,7 @@ GameObject:
   - component: {fileID: 2075159021}
   - component: {fileID: 2075159023}
   - component: {fileID: 2075159022}
+  - component: {fileID: 2075159024}
   m_Layer: 5
   m_Name: BuildingUIPanel
   m_TagString: Untagged
@@ -3728,6 +3727,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2075159020}
   m_CullTransparentMesh: 1
+--- !u!114 &2075159024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075159020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035615c69125fbb44a335a1ea08ed52b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  workersCountText: {fileID: 587323584}
+  productionSpeedText: {fileID: 65782260}
 --- !u!1 &2090306292
 GameObject:
   m_ObjectHideFlags: 0
