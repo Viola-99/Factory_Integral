@@ -13,8 +13,8 @@ public class Factory : Building
 	{
         if(isBuilded)
         {
-            GameManager.instance.FillBuildingPanelWithInfo(currentWorkersCount, maxWorkersCount, 2);
-            GameManager.instance.InverseBuildingUIPanel();
+            UIManager.I.buildingUIPanel.FillBuildingPanelWithInfo(currentWorkersCount, maxWorkersCount, 2);
+            UIManager.I.buildingUIPanel.InverseBuildingUIPanel();
         }
 	}
 

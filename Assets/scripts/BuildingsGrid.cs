@@ -59,9 +59,9 @@ public class BuildingsGrid : MonoBehaviour
                 if (available &&  Input.GetMouseButtonDown(0))
                 {
                     float cost = flyingBuilding.buildingCost;
-                    if (GameManager.instance.GetMoney() - cost >= 0)
+                    if (GameManager.I.GetMoney() - cost >= 0)
 					{
-                        GameManager.instance.ChangeMoney(-cost);
+                        GameManager.I.ChangeMoney(-cost);
 
                         PlaceFlyingBuilding(x, y);
                       

@@ -23,9 +23,9 @@ public class SellingElement : MonoBehaviour
         itemName.text = item.itemName;
         costOfOneText.text = item.sellPrice.ToString() + "$";
 
-        if(GameManager.instance.items.ContainsKey(item))
+        if(GameManager.I.items.ContainsKey(item))
         {
-            wholeItemsAmount = GameManager.instance.items[item];
+            wholeItemsAmount = GameManager.I.items[item];
 
             wholeAmountText.text = wholeItemsAmount.ToString();
         }
@@ -43,7 +43,7 @@ public class SellingElement : MonoBehaviour
 
     public void SellSelected()
     {
-        GameManager.instance.ChangeMoney(+selectedItemsToSell * item.sellPrice);
+        GameManager.I.ChangeMoney(+selectedItemsToSell * item.sellPrice);
         selectedItemsToSell = 0;
 
         selectItemsToSellText.text = selectedItemsToSell.ToString();
@@ -54,11 +54,11 @@ public class SellingElement : MonoBehaviour
     {
         if(item != null)
         {
-            if (GameManager.instance.items.ContainsKey(item))
+            if (GameManager.I.items.ContainsKey(item))
             {
-                if(wholeItemsAmount != GameManager.instance.items[item])
+                if(wholeItemsAmount != GameManager.I.items[item])
                 {
-                    wholeItemsAmount = GameManager.instance.items[item];
+                    wholeItemsAmount = GameManager.I.items[item];
                     wholeAmountText.text = wholeItemsAmount.ToString();
                 }
             }
