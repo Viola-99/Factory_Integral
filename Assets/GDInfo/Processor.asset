@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 386c44f6262a86d47805926fea6975d5, type: 3}
-  m_Name: Chip
+  m_Name: Processor
   m_EditorClassIdentifier: 
-  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  itemName: Chip
-  sellPrice: 10
+  icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  itemName: Processor
+  sellPrice: 25
