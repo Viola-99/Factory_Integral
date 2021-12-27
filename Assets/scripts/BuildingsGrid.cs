@@ -59,16 +59,14 @@ public class BuildingsGrid : MonoBehaviour
                 if (available &&  Input.GetMouseButtonDown(0))
                 {
                     float cost = flyingBuilding.buildingCost;
-                    if (GameManager.I.GetMoney() - cost >= 0)
+                    if (GameManager.I.ChangeMoney(-cost))
 					{
-                        GameManager.I.ChangeMoney(-cost);
-
                         PlaceFlyingBuilding(x, y);
-                      
                     }
 					else
-					 Debug.Log("Not enough money!");
-					
+                    {
+                        Debug.Log("Not enough money!");
+                    }
                 }
             }
         }

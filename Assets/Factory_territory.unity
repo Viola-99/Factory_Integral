@@ -1771,7 +1771,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2a24725aee2a044b912141474ffe9ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyText: {fileID: 255993731}
   buildingUIPanel: {fileID: 2075159024}
+  resourcesTab: {fileID: 1299182954}
   marketUI: {fileID: 71769743}
 --- !u!1 &587323582
 GameObject:
@@ -2006,6 +2008,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1375407829125492486, guid: 968f8d2f6b1d6c64196887e46ddb232f, type: 3}
   m_PrefabInstance: {fileID: 775983395}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &775983397 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3167322149439719135, guid: 968f8d2f6b1d6c64196887e46ddb232f, type: 3}
+  m_PrefabInstance: {fileID: 775983395}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b6546561c61c74a9bdf57cda12b50e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &833977149
 GameObject:
   m_ObjectHideFlags: 0
@@ -2362,6 +2375,7 @@ GameObject:
   - component: {fileID: 1299182951}
   - component: {fileID: 1299182953}
   - component: {fileID: 1299182952}
+  - component: {fileID: 1299182954}
   m_Layer: 5
   m_Name: ResourcesPanel
   m_TagString: Untagged
@@ -2424,6 +2438,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1299182950}
   m_CullTransparentMesh: 1
+--- !u!114 &1299182954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299182950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065caf172b6cdf34eb427cb415569266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourcePanels:
+    list:
+    - Key: {fileID: 11400000, guid: 9555038a677ba374695fbfb570ca6448, type: 2}
+      Value: {fileID: 1375407830482648864}
+    - Key: {fileID: 11400000, guid: f1d0a3a28f3af1b48af5848678561f2c, type: 2}
+      Value: {fileID: 775983397}
 --- !u!1 &1305016066
 GameObject:
   m_ObjectHideFlags: 0
@@ -2959,8 +2991,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0bd8e7f67e7b241a6902509db0ea85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyText: {fileID: 255993731}
   money: 10
+  testRes: {fileID: 11400000, guid: 9555038a677ba374695fbfb570ca6448, type: 2}
 --- !u!4 &1571422606
 Transform:
   m_ObjectHideFlags: 0
@@ -4044,3 +4076,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 968f8d2f6b1d6c64196887e46ddb232f, type: 3}
+--- !u!114 &1375407830482648864 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3167322149439719135, guid: 968f8d2f6b1d6c64196887e46ddb232f, type: 3}
+  m_PrefabInstance: {fileID: 1375407830482648863}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b6546561c61c74a9bdf57cda12b50e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

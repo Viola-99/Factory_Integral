@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SellingElement : MonoBehaviour
+public class UISellingElement : MonoBehaviour
 {
     [SerializeField] private Image icon;
     [SerializeField] private Text itemName;
@@ -12,23 +12,19 @@ public class SellingElement : MonoBehaviour
     [SerializeField] private Text selectItemsToSellText;
     [SerializeField] private Text priceForSelectedText;
 
-    private Item item;
+    private Resource item;
     private int wholeItemsAmount;
     private int selectedItemsToSell = 0;
 
-    public void Setup(Item _item)
+    public void Setup(Resource _item)
     {
         item = _item;
         icon.sprite = item.icon;
-        itemName.text = item.itemName;
-        costOfOneText.text = item.sellPrice.ToString() + "$";
+        itemName.text = item.resourceName;
+        costOfOneText.text = item.baseSellPrice.ToString() + "$";
 
-        if(GameManager.I.items.ContainsKey(item))
-        {
-            wholeItemsAmount = GameManager.I.items[item];
-
-            wholeAmountText.text = wholeItemsAmount.ToString();
-        }
+        wholeItemsAmount = GameManager.I.GetResourceCount(item);
+        wholeAmountText.text = wholeItemsAmount.ToString();
     }
 
     public void ChangeSelectedAmount(int changeCount)
@@ -37,13 +33,13 @@ public class SellingElement : MonoBehaviour
         {
             selectedItemsToSell += changeCount;
             selectItemsToSellText.text = selectedItemsToSell.ToString();
-            priceForSelectedText.text = (selectedItemsToSell * item.sellPrice).ToString() + "$";
+            priceForSelectedText.text = (selectedItemsToSell * item.baseSellPrice).ToString() + "$";
         }
     }
 
     public void SellSelected()
     {
-        GameManager.I.ChangeMoney(+selectedItemsToSell * item.sellPrice);
+        GameManager.I.ChangeMoney(+selectedItemsToSell * item.baseSellPrice);
         selectedItemsToSell = 0;
 
         selectItemsToSellText.text = selectedItemsToSell.ToString();
@@ -54,13 +50,10 @@ public class SellingElement : MonoBehaviour
     {
         if(item != null)
         {
-            if (GameManager.I.items.ContainsKey(item))
+            if(wholeItemsAmount != GameManager.I.GetResourceCount(item))
             {
-                if(wholeItemsAmount != GameManager.I.items[item])
-                {
-                    wholeItemsAmount = GameManager.I.items[item];
-                    wholeAmountText.text = wholeItemsAmount.ToString();
-                }
+                wholeItemsAmount = GameManager.I.GetResourceCount(item);
+                wholeAmountText.text = wholeItemsAmount.ToString();
             }
         }
     }
