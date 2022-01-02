@@ -60,7 +60,7 @@ public class BuildingsGrid : MonoBehaviour
 
                 if (available && IsPlaceTaken(x, y)) available = false;
 
-                flyingBuilding.transform.position = new Vector3(x, 0, y);
+                flyingBuilding.transform.position = new Vector3(x, -0.5f, y);
                 flyingBuilding.SetTransparent(available);
 
                 if (available &&  Input.GetMouseButtonDown(0))
