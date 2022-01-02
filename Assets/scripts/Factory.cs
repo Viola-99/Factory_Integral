@@ -6,13 +6,13 @@ using UnityEngine;
 public class Factory : Building
 {
     [Space]
-    [SerializeField] private int maxWorkersCount = 20;
-    [SerializeField] private int currentWorkersCount = 0;
+    [SerializeField] protected int maxWorkersCount = 20;
+    [SerializeField] protected int currentWorkersCount = 0;
     [SerializeField] private float addOneWorkerTime = 3f;
     [Space]
-    [SerializeField] private Resource producingResource;
-    [SerializeField] private float baseProducingTime = 2f;
-    [SerializeField] private float productionUpdateRate = 0.5f;
+    [SerializeField] protected Resource producingResource;
+    [SerializeField] protected float baseProducingTime = 2f;
+    [SerializeField] protected float productionUpdateRate = 0.5f;
 
     private void Start()
     {
@@ -45,7 +45,7 @@ public class Factory : Building
         }
     }
 
-    private IEnumerator ProductionRoutine()
+    protected virtual IEnumerator ProductionRoutine()
     {
         float productionProgress = 0;
         while (true)
