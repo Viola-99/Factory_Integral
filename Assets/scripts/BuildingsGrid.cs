@@ -20,11 +20,18 @@ public class BuildingsGrid : MonoBehaviour
 
     public void StartPlacingBuilding(Building buildingPrefab) 
     {
-        if (flyingBuilding != null)
+        if(buildingPrefab.buildingCost <= GameManager.I.GetMoney())
         {
-            Destroy(flyingBuilding.gameObject);
+            if (flyingBuilding != null)
+            {
+                Destroy(flyingBuilding.gameObject);
+            }
+            flyingBuilding = Instantiate(buildingPrefab);
         }
-        flyingBuilding = Instantiate(buildingPrefab);
+        else
+        {
+            Debug.Log("Not Enough Money (Building Grid)!");
+        }
     }
     void Start()
     {
