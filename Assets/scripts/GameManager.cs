@@ -65,4 +65,19 @@ public class GameManager : MonoBehaviour
 			return 0;
 		}
 	}
+
+	public List<Resource> GetResourceTypes()
+	{
+		List<Resource> res = new List<Resource>();
+
+		if(resources != null)
+		{
+			foreach (var k in resources.Keys)
+			{
+				res.Add(k);
+			}
+		}
+
+		return res;
+	}
 }

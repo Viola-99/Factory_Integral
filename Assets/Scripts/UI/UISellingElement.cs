@@ -25,21 +25,35 @@ public class UISellingElement : MonoBehaviour
 
         wholeItemsAmount = GameManager.I.GetResourceCount(item);
         wholeAmountText.text = wholeItemsAmount.ToString();
+
+        ChangeSelectedAmount(0);
     }
 
     public void ChangeSelectedAmount(int changeCount)
     {
-        if(selectedItemsToSell + changeCount <= wholeItemsAmount)
+        if(selectedItemsToSell + changeCount >= 0)
         {
-            selectedItemsToSell += changeCount;
-            selectItemsToSellText.text = selectedItemsToSell.ToString();
-            priceForSelectedText.text = (selectedItemsToSell * item.baseSellPrice).ToString() + "$";
+            if (selectedItemsToSell + changeCount <= wholeItemsAmount)
+            {
+                selectedItemsToSell += changeCount;
+            }
+            else
+            {
+                selectedItemsToSell = wholeItemsAmount;
+            }
         }
+        else
+        {
+            selectedItemsToSell = 0;
+        }
+        selectItemsToSellText.text = selectedItemsToSell.ToString();
+        priceForSelectedText.text = (selectedItemsToSell * item.baseSellPrice).ToString() + "$";
     }
 
     public void SellSelected()
     {
         GameManager.I.ChangeMoney(+selectedItemsToSell * item.baseSellPrice);
+        GameManager.I.ChangeResourceCount(item, -selectedItemsToSell);
         selectedItemsToSell = 0;
 
         selectItemsToSellText.text = selectedItemsToSell.ToString();

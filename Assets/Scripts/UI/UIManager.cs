@@ -15,11 +15,11 @@ public class UIManager : MonoBehaviour
     [Space]
     [SerializeField] public UIBuildingPanel buildingUIPanel;
     [SerializeField] public UIResourcesTab resourcesTab;
-    [SerializeField] private GameObject marketUI;
+    [SerializeField] private UIMarket marketUI;
 
     private void Start()
     {
-        marketUI.SetActive(false);
+        marketUI.gameObject.SetActive(false);
         buildingUIPanel.gameObject.SetActive(false);
     }
 
@@ -30,11 +30,12 @@ public class UIManager : MonoBehaviour
 
     public void OnMarketButtonPress()
     {
-        marketUI.SetActive(true);
+        marketUI.gameObject.SetActive(true);
+        marketUI.UpdateMarketUI();
     }
 
     public void OnReturn()
     {
-        marketUI.SetActive(false);
+        marketUI.gameObject.SetActive(false);
     }
 }

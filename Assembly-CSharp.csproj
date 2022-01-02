@@ -56,14 +56,15 @@
     <Compile Include="Assets\Scripts\Factory.cs" />
     <Compile Include="Assets\Scripts\UI\UISellingElement.cs" />
     <Compile Include="Assets\Scripts\BuildingsGrid.cs" />
+    <Compile Include="Assets\Scripts\UI\UIResourcePanel.cs" />
+    <Compile Include="Assets\Scripts\UI\UIBuildingPanel.cs" />
+    <Compile Include="Assets\SerializableDictionary\SerializableDictionary.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\UI\UIResourcesTab.cs" />
     <Compile Include="Assets\Scripts\Building.cs" />
     <Compile Include="Assets\Scripts\Resource.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
-    <Compile Include="Assets\Scripts\UI\UIBuildingPanel.cs" />
-    <Compile Include="Assets\Scripts\UI\UIResourcesTab.cs" />
-    <Compile Include="Assets\Scripts\UI\UIResourcePanel.cs" />
-    <Compile Include="Assets\SerializableDictionary\SerializableDictionary.cs" />
+    <Compile Include="Assets\Scripts\UI\UIMarket.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
